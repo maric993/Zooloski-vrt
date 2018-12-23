@@ -4,7 +4,7 @@
 #include <mysql.h>
 #include <stdarg.h>
 #include <errno.h>
-
+#define WORD_SIZE 30
 #define QUERY_SIZE 256
 #define BUFFER_SIZE 80
 
@@ -33,6 +33,8 @@ int main(int argc, char**argv){
     int opcija;
 	char query[QUERY_SIZE];	/* Promenljiva za formuaciju upita. */
 	int prosli=1;
+    char ulaz[3][WORD_SIZE];
+    
 	if(argc < 3)
         error_fatal("Unesite user i passwd");
 
@@ -90,6 +92,14 @@ int main(int argc, char**argv){
         case 2:
             break;
         case 3:
+          
+            printf("Unesite id zivotinje id hrane i kolicinu\n");
+            scanf("%s %s %s",ulaz[0],ulaz[1], ulaz[2]); 
+            sprintf (query, "Insert into Raspored_hranjenja values (\"%s\",\"%s\",now(),\"%s\");",ulaz[0],ulaz[1],ulaz[2]);
+ 
+            if (mysql_query (konekcija, query) != 0)
+                error_fatal ("Greska u upitu %s\n", mysql_error (konekcija));
+            
             break;
         case 4:
             break;
