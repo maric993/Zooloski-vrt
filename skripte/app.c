@@ -55,8 +55,7 @@ int main(int argc, char**argv){
     printf("1.Prikazi rezervne kaveze za sve kaveze\n");
     printf("2.Unosenje podataka o novoj zivotinj\n");
     printf("3.Unosenje podataka o hranjenju zivotine\n");
-    printf("4.Predlozi novi kavez za zivotinju\n");
-    printf("5.Otvori novu terapiju\n");
+    printf("4.Otvori novu terapiju\n");
     printf("0 Za zavrsetak programa\n");
     
     scanf("%d",&opcija);
@@ -154,9 +153,6 @@ int main(int argc, char**argv){
         
             break;
         case 4:
-          // TODO 
-            break;
-        case 5:
              sprintf (query, "Select id_zivotinje ,ime from Zivotinja ");
              
  

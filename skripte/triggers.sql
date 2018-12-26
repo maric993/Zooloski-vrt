@@ -1,3 +1,13 @@
+use zooPBP
+delimiter //
+DROP TRIGGER IF EXISTS remove_delete;
+CREATE TRIGGER remove_delete BEFORE DELETE on Zivotinja
+for each row
+begin
+SIGNAL sqlstate '45000' set message_text = 'Nije moguce izbrisati zivotinju iz baze podataka';
+end;//
+delimiter ;
+
 
 
 
@@ -40,11 +50,16 @@ where id_vrste=new.id_vrste;
 end;//
 delimiter ;
 
+
 delimiter //
 DROP TRIGGER IF EXISTS update_broj_stanara_after_update;
 CREATE TRIGGER update_broj_stanara_after_update after UPDATE on Zivotinja
 for each row
 begin
+IF(new.status not like ('N' or 'A'))
+then
+SIGNAL sqlstate '45000' set message_text = 'Status zivotinje moze biti ili (N)eaktivan ili (A)ktivan';
+end if ;
 UPDATE Vrsta 
 set broj_stanara = broj_stanara-1
 where id_vrste=new.id_vrste and new.status like 'N' and old.status not like 'N';

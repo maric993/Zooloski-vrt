@@ -149,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `zooPBP`.`Raspored_hranjenja` (
   `id_zivotinje` INT(11) NOT NULL,
   `id_hrane` INT(11) NOT NULL,
   `vreme_hranjenja` DATETIME NOT NULL,
-  `kolicina` INT(11) NOT NULL,
+  `kolicina` FLOAT NOT NULL,
   INDEX `fk_Raspored_hranjenja_Hrana1_idx` (`id_hrane` ASC),
   INDEX `fk_Raspored_hranjenja_Zivotinja1_idx` (`id_zivotinje` ASC),
   PRIMARY KEY (`id_zivotinje`, `id_hrane`, `vreme_hranjenja`),

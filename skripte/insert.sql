@@ -1,3 +1,4 @@
+use zooPBP;
  insert into Kavez values
 (default,'kamena povrs','3','12.12.2018'),
 (default,'travnata povrs','5','12.12.2018'),
@@ -55,16 +56,16 @@ insert into Vrsta values
 (default,'Kornjača sa Galapagosa','3','Galapagoška kornjača  danas je najveća kornjača. Ima velik leđni oklop, goleme udove i dugačak vrat. ',0);
 
 insert into Zivotinja(id_zivotinje,id_vrste,ime,naziv_vrste,datum_rodjenja,pol,interval_ishrane,status,datum_useljenja,datum_iseljenja) values
-(0,1,'Dambo',"Azijski slon",'2008.05.03','M','1','A','2008.05.03',null),
+(0,1,'Dambo','Azijski slon','2008.05.03','M','1','A','2008.05.03',null),
 (0,1,'Cezar','Azijski slon','1992.01.30','M',1,'A','2005.12.04',null),
 (0,1,'Kleopatra','Azijski slon','1997.05.03','F',1,'A','2014.12.04',null),
 (0,2,'Viktoria','Zirafa is Kardofana','2010.12.30','F',1,'A','2018.02.13',null),
 (0,2,'Margaret','Zirafa is Kardofana','2009.04.12','F',2,'A','2018.02.13',null),
 (0,3,'Napoleon','Africki lav','2001.02.10','M',4,'A','2001.02.10',null),
-(0,4,'Deneris','Bengalski tigar','2017.03.06','F',1,'A','2018.02.01',null),
+(0,4,'Jovana','Bengalski tigar','1995.05.05','F',1,'A','2014.10.1',null),
 (0,5,'Lusi','Simpanza','1999.09.01','F',1,'A','2005.12.04',null),
 (0,6,'Narandza','Orangutan','2012.03.10','F',1,'A','2012.03.10',null),
-(0,8,'Jovana','Emu','2015.04.04','F',1,'A','2016.08.18',null),
+(0,8,'Deneris','Emu','2015.04.04','F',1,'N','2016.08.18','2018.08.10'),
 (0,10,'Donatelo','Kornjača sa Galapagosa','1974.03.21','M',1,'A','2005.12.04',null),
 (0,10,'Mikelandjelo','Kornjača sa Galapagosa','1964.01.01','M',1,'A','2005.12.04',null),
 (0,7,'Major','Carski pingvin','2002.05.29','M',1,'A','2008.11.29',null),
