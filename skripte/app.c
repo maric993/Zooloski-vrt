@@ -5,7 +5,7 @@
 #include <stdarg.h>
 #include <errno.h>
 #define WORD_SIZE 30
-#define QUERY_SIZE 256
+#define QUERY_SIZE 1024
 #define BUFFER_SIZE 80
 
 static void error_fatal (char *format, ...){
@@ -39,12 +39,12 @@ int main(int argc, char**argv){
     int kraj=1;
     char * celaLinija=NULL;
     char opis[500];
-	if(argc < 3)
+	if(argc < 2)
         error_fatal("Unesite user i passwd");
 
 	// Konektovanje na bazu
 	konekcija = mysql_init (NULL);
-	if (mysql_real_connect(konekcija, "localhost", argv[1], argv[2], "zooPBP", 0, NULL, 0) == NULL){
+	if (mysql_real_connect(konekcija, "localhost", argv[1], "", "zooPBP", 0, NULL, 0) == NULL){
 		error_fatal ("Greska u konekciji. %s\n", mysql_error (konekcija));
 	}
 
@@ -114,7 +114,7 @@ int main(int argc, char**argv){
                 getline(&celaLinija,&duzina,stdin);
                 memset(ulaz[i],0,WORD_SIZE);
                 strncpy(ulaz[i],celaLinija,(int)strlen(celaLinija)-1);
-                printf("%s\n",ulaz[i]);
+               
         
                 if(i==1){
                      sprintf (query, "Select naziv , interval_ishrane \
@@ -159,7 +159,7 @@ int main(int argc, char**argv){
             strncpy(ulaz[i],celaLinija,(int)strlen(celaLinija)-1);
         
             }
-           printf("%s",ulaz[9]);
+           
            if(!strcmp(ulaz[9],"null"))
                     sprintf (query, "Insert into Zivotinja values (0,\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",\"%s\",null);",ulaz[1],ulaz[2],ulaz[3],ulaz[4],ulaz[5],ulaz[6],ulaz[7],ulaz[8]);
                 else
@@ -404,6 +404,7 @@ int main(int argc, char**argv){
             printf ("\n");
             }
             mysql_free_result (rezultat);
+	break;
         case 0:
            kraj=0;
            break;

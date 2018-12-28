@@ -52,10 +52,15 @@ DROP TRIGGER IF EXISTS update_broj_stanara_and_karton_after_insert;
 CREATE TRIGGER update_broj_stanara_and_karton_after_insert AFTER INSERT on Zivotinja
 for each row
 begin
+if(new.status like 'N')
+then
+INSERT into Zdravstveni_kartoni values(0,new.id_zivotinje,'zivotinja nije vise u zoovrtu',null,null,'zatvoren'); 
+else
 UPDATE Vrsta 
 set broj_stanara = broj_stanara+1 
 where id_vrste=new.id_vrste;
-INSERT into Zdravstveni_kartoni values(0,new.id_zivotinje,'nova zivotinja u bazi',null,CURDATE() + INTERVAL 1 DAY,'otvoren'); 
+INSERT into Zdravstveni_kartoni values(0,new.id_zivotinje,'nova zivotinja u bazi',null,CURDATE() + INTERVAL 1 DAY,'otvoren');
+end if; 
 end;//
 delimiter ;
 
