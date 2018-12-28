@@ -38,7 +38,7 @@ int main(int argc, char**argv){
     char zivotinja[10][20]={"id zivotinje","id vrste","ime","naizv vrste","datum rodjenja","pol","interval ishrane","status","datum useljenja","datum iseljenja"};
     int kraj=1;
     char * celaLinija=NULL;
-    
+    char opis[500];
 	if(argc < 3)
         error_fatal("Unesite user i passwd");
 
@@ -109,7 +109,13 @@ int main(int argc, char**argv){
                     i++;
                    
                 printf("Unesite %s\n",zivotinja[i]);
-                scanf("%s",ulaz[i]);
+                scanf("\n");
+                size_t duzina=0;
+                getline(&celaLinija,&duzina,stdin);
+                memset(ulaz[i],0,WORD_SIZE);
+                strncpy(ulaz[i],celaLinija,(int)strlen(celaLinija)-1);
+                printf("%s\n",ulaz[i]);
+        
                 if(i==1){
                      sprintf (query, "Select naziv , interval_ishrane \
                      from Vrsta\
@@ -149,6 +155,7 @@ int main(int argc, char**argv){
             scanf("\n");
             size_t duzina=0;
             getline(&celaLinija,&duzina,stdin);
+            memset(ulaz[i],0,WORD_SIZE);
             strncpy(ulaz[i],celaLinija,(int)strlen(celaLinija)-1);
         
             }
@@ -311,9 +318,10 @@ int main(int argc, char**argv){
             scanf("%s %*c %s",ulaz[0],ulaz[1]);
             
             printf("Unesite dijagnozu\n");
-            scanf("%s",ulaz[2]);
+            getchar();
+            fgets(opis,500,stdin);
            
-            sprintf (query, "insert into Terapija values(0,\"%s\",\"%s\",\"%s\",\"%s\")",red[0],ulaz[0],ulaz[1],ulaz[2]);
+            sprintf (query, "insert into Terapija values(0,\"%s\",\"%s\",\"%s\",\"%s\")",red[0],ulaz[0],ulaz[1],opis);
             mysql_free_result (rezultat);
             
             if (mysql_query (konekcija, query) != 0)
@@ -325,7 +333,7 @@ int main(int argc, char**argv){
                 scanf("%s",ulaz[0]);
             printf("Unesite opis zdravstvenog stanja\n");
             getchar();
-            char opis[500];
+
             fgets(opis,500,stdin);
             sprintf (query, "update Zdravstveni_kartoni set opis=\"%s\",datum_poslednjeg_pregleda=CURDATE() ,datum_kontrole= CURDATE() + INTERVAL 30 DAY where id_zivotinje = \"%s\"",opis,ulaz[0]);
  
