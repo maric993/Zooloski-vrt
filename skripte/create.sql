@@ -107,7 +107,7 @@ DEFAULT CHARACTER SET = utf8;
 CREATE TABLE IF NOT EXISTS `zooPBP`.`Hrana` (
   `id_hrane` INT(11) NOT NULL AUTO_INCREMENT,
   `id_dobavljaca` INT(11) NOT NULL,
-  `kolicina_u_skladistu` INT(11) NOT NULL,
+  `kolicina_u_skladistu` FLOAT NOT NULL,
   `naziv` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id_hrane`),
   INDEX `fk_Hrana_Dobavljac1_idx` (`id_dobavljaca` ASC),
@@ -175,7 +175,7 @@ CREATE TABLE IF NOT EXISTS `zooPBP`.`Zdravstveni_kartoni` (
   `id_zivotinje` INT(11) NOT NULL,
   `opis` VARCHAR(500) NOT NULL,
   `datum_poslednjeg_pregleda` DATE NULL,
-  `datum_kontrole` DATE NOT NULL,
+  `datum_kontrole` DATE NULL,
   `status` VARCHAR(45) NOT NULL DEFAULT 'otvoren',
   PRIMARY KEY (`id_kartona`),
   INDEX `fk_Zdravstveni_kartoni_Zivotinja1` (`id_zivotinje` ASC),

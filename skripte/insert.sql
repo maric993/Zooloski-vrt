@@ -34,26 +34,26 @@ insert into Dobavljac values
 (default,'MJ Trade d.o.o','mjtrade.com');
 
 insert into Hrana values
-(default ,1,3300,'seno'),
-(default ,2,1300,'meso'),
-(default ,1,2500,'semenke i kostunjavo voce'),
+(default ,1,1300,'seno'),
+(default ,2,2300,'meso'),
+(default ,1,500,'semenke i kostunjavo voce'),
 (default ,3,3300,'juzno voce'),
 (default ,4,3200,'mleko'),
 (default ,6,550,'insekti'),
-(default ,1,4200,'zitarice'),
-(default ,2,4200,'riba');
+(default ,1,800,'zitarice'),
+(default ,2,1200,'riba');
 
 insert into Vrsta values
-(default,'Azijski slon','1','Slonovi su velike životinje iz familije Elephantidae. Slonovi su biljojedi i prisutni su u različitim staništima uključujući savane, šume, pustinje, i močvare.',0),
-(default,'Zirafa is Kardofana','1','Žirafa je afrički sisar iz reda papkara, najviši od svih kopnenih životinja',0),
-(default,'Africki lav','4','Lav je veliki sisar iz porodice mačaka.',0),
-(default,'Bengalski tigar','2','Žirafa je afrički sisar iz reda papkara, najviši od svih kopnenih životinja',0),
+(default,"Azijski slon",'1','Slonovi su velike životinje iz familije Elephantidae. Slonovi su biljojedi i prisutni su u različitim staništima uključujući savane, šume, pustinje, i močvare.',0),
+(default,"Zirafa is Kardofana",'1','Žirafa je afrički sisar iz reda papkara, najviši od svih kopnenih životinja',0),
+(default,"Africki lav",'4','Lav je veliki sisar iz porodice mačaka.',0),
+(default,"Bengalski tigar",'2','Žirafa je afrički sisar iz reda papkara, najviši od svih kopnenih životinja',0),
 (default,'Simpanza','1','Simpanza  je čovekoliki majmun iz porodice velikih čovekolikih majmuna koji nastanjuje prašume centralne i zapadne Afrike.',0),
 (default,'Orangutan','1','Orangutani  su rod velikih čovekolikih majmuna poznati po svojoj inteligenciji, dugačkim rukama i riđem krznu..',0),
-(default,'Carski pingvin','1','Carski pingvin je najviša i najteža vrsta od 17 vrsta pingvina.Odrasli pingvini su prosečne visine od 1,3 metara',0),
+(default,"Carski pingvin",'1','Carski pingvin je najviša i najteža vrsta od 17 vrsta pingvina.Odrasli pingvini su prosečne visine od 1,3 metara',0),
 (default,'Emu','1','Emu je najviša ptica u Australiji koja ne leti. Može da naraste čak do 2 metara. Vrat i noge su dugi, a krila kratka, samo 20 centimetara duga.',0),
-(default,'Indijski paun','1','Indijski paun prirodno naseljava Indijski potkontinent. Ima predivan rep od dugih pera sa okastim šarama koja širi sjajnu plavu glavu i vrat.',0),
-(default,'Kornjača sa Galapagosa','3','Galapagoška kornjača  danas je najveća kornjača. Ima velik leđni oklop, goleme udove i dugačak vrat. ',0);
+(default,"Indijski paun",'1','Indijski paun prirodno naseljava Indijski potkontinent. Ima predivan rep od dugih pera sa okastim šarama koja širi sjajnu plavu glavu i vrat.',0),
+(default,"Kornjača sa Galapagosa",'3','Galapagoška kornjača  danas je najveća kornjača. Ima velik leđni oklop, goleme udove i dugačak vrat. ',0);
 
 insert into Zivotinja(id_zivotinje,id_vrste,ime,naziv_vrste,datum_rodjenja,pol,interval_ishrane,status,datum_useljenja,datum_iseljenja) values
 (0,1,'Dambo','Azijski slon','2008.05.03','M','1','A','2008.05.03',null),
