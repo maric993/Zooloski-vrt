@@ -14,13 +14,13 @@ all: progs create trigger insert
 
 
 create:
-	mysql -u root -p2699836MaricJovan_ <create.sql 
+	mysql -u root -p <create.sql 
 
 trigger: 
-	mysql -u root -p2699836MaricJovan_  <triggers.sql
+	mysql -u root -p  <triggers.sql
 	
 insert:
-	mysql -u root -p2699836MaricJovan_ <insert.sql
+	mysql -u root -p <insert.sql
 
 
 	
